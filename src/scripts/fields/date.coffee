@@ -1,32 +1,23 @@
 Formbuilder.registerField 'date',
 
+  name: 'Date'
+
   order: 20
 
   view: """
     <div class='input-line'>
-      <span class='month'>
-        <input type="text" />
-        <label>MM</label>
-      </span>
-
-      <span class='above-line'>/</span>
-
-      <span class='day'>
-        <input type="text" />
-        <label>DD</label>
-      </span>
-
-      <span class='above-line'>/</span>
-
-      <span class='year'>
-        <input type="text" />
-        <label>YYYY</label>
-      </span>
+      <input type="text" placeholder=" DD/MM/YYYY " />
     </div>
   """
 
-  edit: ""
+  edit: """
+  <%= Formbuilder.templates['edit/date']({ rf: rf }) %>
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
+  """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-calendar"></span></span> Date
+    <span class="fb-icon-date"></span> Date
   """
+  defaultAttributes: (attrs) ->
+    attrs.options.default_date = false
+    attrs

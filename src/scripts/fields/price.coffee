@@ -1,5 +1,7 @@
 Formbuilder.registerField 'price',
 
+  name: 'Price'
+
   order: 45
 
   view: """
@@ -17,8 +19,10 @@ Formbuilder.registerField 'price',
     </div>
   """
 
-  edit: ""
+  edit: """
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
+  """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-usd"></span></span> Price
+    <span class="fb-icon-price"></span> Price
   """
