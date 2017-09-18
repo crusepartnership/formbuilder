@@ -1136,7 +1136,7 @@
     };
 
     BuilderView.prototype.createAndShowEditView = function(model) {
-      var $newEditEl, $parentWrapper, $responseFieldEl, attrs, fieldWrapper, parent, selectedTriggers;
+      var $newEditEl, $parentWrapper, $responseFieldEl, attrs, fieldWrapper, parent, selectedTriggers, _ref7;
       $responseFieldEl = this.$el.find(".fb-field-wrapper").filter(function() {
         return $(this).data('cid') === model.cid;
       });
@@ -1158,6 +1158,8 @@
         }).each(function() {
           return $(this).addClass('trigger-option');
         });
+      } else if (!parent && (((_ref7 = model._previousAttributes.options) != null ? _ref7.conditional : void 0) != null)) {
+        model.unset('options.conditional');
       }
       if (this.editView) {
         if (this.editView.model.cid === model.cid) {
@@ -1271,9 +1273,29 @@
     };
 
     BuilderView.prototype.getPayload = function() {
-      return JSON.stringify({
+      var load;
+      load = JSON.stringify({
+        fields: this.validatePayload()
+      });
+      return JSON.parse(load);
+    };
+
+    BuilderView.prototype.validatePayload = function() {
+      var field, fields, load, payload, _i, _len, _ref10, _ref7, _ref8, _ref9;
+      load = JSON.stringify({
         fields: this.collection.toJSON()
       });
+      payload = JSON.parse(load);
+      fields = payload.fields;
+      for (_i = 0, _len = fields.length; _i < _len; _i++) {
+        field = fields[_i];
+        if ((_ref7 = field.options) != null ? (_ref8 = _ref7.conditional) != null ? _ref8.parent : void 0 : void 0) {
+          if (!((_ref9 = field.options) != null ? (_ref10 = _ref9.conditional) != null ? _ref10.values : void 0 : void 0)) {
+            field.options.conditional.values = '[]';
+          }
+        }
+      }
+      return fields;
     };
 
     BuilderView.prototype.saveForm = function(e) {
