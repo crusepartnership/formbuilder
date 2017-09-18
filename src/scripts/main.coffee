@@ -843,8 +843,7 @@ class BuilderView extends Backbone.View
     @saveFormButton.removeAttr('disabled').text(Formbuilder.options.dict.SAVE_FORM)
 
   getPayload: ->
-    load = JSON.stringify fields: @validatePayload()
-    return JSON.parse load
+    return JSON.stringify fields: @validatePayload()
 
 
   validatePayload: () ->

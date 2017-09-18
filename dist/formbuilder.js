@@ -1273,11 +1273,9 @@
     };
 
     BuilderView.prototype.getPayload = function() {
-      var load;
-      load = JSON.stringify({
+      return JSON.stringify({
         fields: this.validatePayload()
       });
-      return JSON.parse(load);
     };
 
     BuilderView.prototype.validatePayload = function() {
