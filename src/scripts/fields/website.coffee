@@ -1,5 +1,7 @@
 Formbuilder.registerField 'website',
 
+  name: 'Website'
+
   order: 35
 
   view: """
@@ -7,8 +9,9 @@ Formbuilder.registerField 'website',
   """
 
   edit: """
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
   """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-link"></span></span> Website
+    <span class="fb-icon-website"></span> Website
   """

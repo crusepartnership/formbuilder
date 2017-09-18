@@ -1,13 +1,17 @@
 Formbuilder.registerField 'file',
 
+  name: 'File'
+
   order: 55
 
   view: """
-    <input type='file' />
+    <canvas />
   """
 
-  edit: ""
+  edit: """
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
+  """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-cloud-upload"></span></span> File
+    <span class="fb-icon-file"></span> File
   """
