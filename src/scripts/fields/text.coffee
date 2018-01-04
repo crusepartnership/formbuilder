@@ -1,5 +1,7 @@
 Formbuilder.registerField 'text',
 
+  name: 'Text'
+
   order: 0
 
   view: """
@@ -7,14 +9,14 @@ Formbuilder.registerField 'text',
   """
 
   edit: """
-    <%= Formbuilder.templates['edit/size']() %>
-    <%= Formbuilder.templates['edit/min_max_length']() %>
+  <%= Formbuilder.templates['edit/populate_from']({ rf: rf }) %>
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
   """
 
   addButton: """
-    <span class='symbol'><span class='fa fa-font'></span></span> Text
+    <span class="fb-icon-text"></span> Text
   """
 
   defaultAttributes: (attrs) ->
-    attrs.field_options.size = 'small'
+    attrs.options.size = 'small'
     attrs

@@ -1,4 +1,5 @@
 Formbuilder.registerField 'dropdown',
+  name: 'Dropdown'
 
   order: 24
 
@@ -17,22 +18,29 @@ Formbuilder.registerField 'dropdown',
   """
 
   edit: """
-    <%= Formbuilder.templates['edit/options']({ includeBlank: true }) %>
+    <%= Formbuilder.templates['edit/scoring']() %>
+    <%= Formbuilder.templates['edit/options']({ rf: rf }) %>
+    <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
   """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-caret-down"></span></span> Dropdown
+    <span class="fb-icon-dropdown"></span> Dropdown
   """
 
   defaultAttributes: (attrs) ->
-    attrs.field_options.options = [
+    attrs.answers = [
+      uuid: uuid.v4()
       label: "",
-      checked: false
+      checked: false,
+      score: ""
     ,
+      uuid: uuid.v4()
       label: "",
-      checked: false
+      checked: false,
+      score: ""
     ]
 
-    attrs.field_options.include_blank_option = false
+    attrs.is_scored = false
+    attrs.options.include_blank_option = false
 
     attrs

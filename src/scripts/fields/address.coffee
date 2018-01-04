@@ -1,4 +1,5 @@
 Formbuilder.registerField 'address',
+  name: 'Address'
 
   order: 50
 
@@ -35,8 +36,10 @@ Formbuilder.registerField 'address',
     </div>
   """
 
-  edit: ""
+  edit: """
+  <%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>
+  """
 
   addButton: """
-    <span class="symbol"><span class="fa fa-home"></span></span> Address
+    <span class="fb-icon-address"></span> Address
   """

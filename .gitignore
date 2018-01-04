@@ -2,3 +2,6 @@ node_modules
 bower_components
 .sass-cache
 compiled
+npm-debug.log
+.DS_Store
+.idea
