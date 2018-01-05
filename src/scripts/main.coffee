@@ -211,7 +211,6 @@ class TableFieldView extends ViewFieldView
       childModel = @model.collection.findWhereUuid(element.uuid)
       if childModel
         @listenTo childModel, "change", @update
-        @listenTo childModel, "destroy", (model) -> @update model
       else
         console.log(element.uuid)
     ,@

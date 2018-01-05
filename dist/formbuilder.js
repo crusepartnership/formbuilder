@@ -410,10 +410,7 @@
         var childModel;
         childModel = this.model.collection.findWhereUuid(element.uuid);
         if (childModel) {
-          this.listenTo(childModel, "change", this.update);
-          return this.listenTo(childModel, "destroy", function(model) {
-            return this.update(model);
-          });
+          return this.listenTo(childModel, "change", this.update);
         } else {
           return console.log(element.uuid);
         }
