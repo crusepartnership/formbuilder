@@ -10,7 +10,7 @@ Formbuilder.registerField 'radio',
           <div class="fb-option-wrapper <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>">
             <label class='fb-option' data-uuid="<%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].uuid %>">
               <input type='radio' <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].checked && 'checked' %> onclick="javascript: return false;" />
-              <%= rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>
+              <%- rf.get(Formbuilder.options.mappings.OPTIONS)[i].label %>
             </label>
           </div>
         <% } %>
