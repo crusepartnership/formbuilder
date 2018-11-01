@@ -1857,7 +1857,7 @@
     name: 'Info',
     order: 20,
     element_type: 'non_input',
-    view: "<label class='section-name'><%- rf.get(Formbuilder.options.mappings.LABEL) %></label>\n<p><%- rf.get(Formbuilder.options.mappings.DESCRIPTION) %></p>",
+    view: "<label class='section-name'><%- rf.get(Formbuilder.options.mappings.LABEL) %></label>\n<p><%= rf.get(Formbuilder.options.mappings.DESCRIPTION) %></p>",
     edit: "<div class=\"fb-edit-section-header\">Details</div>\n<div class=\"fb-common-wrapper\">\n  <div class=\"fb-label-description\">\n    <input type=\"text\" data-rv-input=\"model.<%= Formbuilder.options.mappings.LABEL %>\">\n  </div>\n  <textarea class=\"fb-info-editor\" style=\"display:none;\" data-rv-input=\"model.<%= Formbuilder.options.mappings.DESCRIPTION %>\">\n  </textarea>\n</div>\n<%= Formbuilder.templates['edit/conditional_options']({ rf: rf }) %>",
     addButton: "<span class=\"fb-icon-info\"></span> Info",
     onEdit: function(model) {
